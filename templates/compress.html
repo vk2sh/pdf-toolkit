@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="section">
+    <div class="card">
+        <h2>Image Compression</h2>
+        <form action="/compress" method="post" enctype="multipart/form-data">
+            <label class="upload-area">
+                Upload Image
+                <input type="file" name="image" accept="image/*" required>
+            </label>
+            <button type="submit">Compress Image</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

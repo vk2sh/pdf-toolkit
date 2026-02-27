@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Tools Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">PDF Tools Pro</div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/merge-page" class="{% if 'merge' in request.path %}active{% endif %}">Merge</a>
+        <a href="/compress-page" class="{% if 'compress' in request.path %}active{% endif %}">Compress</a>
+        <a href="/jpg-to-pdf-page" class="{% if 'jpg' in request.path %}active{% endif %}">JPG to PDF</a>
+    </div>
+</div>
+
+{% block content %}{% endblock %}
+
+<footer>
+    © 2026 PDF Tools Pro | Built with Flask
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

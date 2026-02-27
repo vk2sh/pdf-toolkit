@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="section">
+    <div class="card">
+        <h2>Merge Your PDFs</h2>
+
+        <form action="/merge" method="post" enctype="multipart/form-data">
+            <label class="upload-area">
+                Click to Upload PDFs
+                <input type="file" name="pdfs" multiple accept=".pdf" required>
+            </label>
+
+            <button type="submit">Merge PDFs</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

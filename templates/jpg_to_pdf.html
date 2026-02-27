@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="section">
+    <div class="card">
+        <h2>JPG to PDF Converter</h2>
+        <form action="/jpg-to-pdf" method="post" enctype="multipart/form-data">
+            <label class="upload-area">
+                Upload JPG Image
+                <input type="file" name="image" accept=".jpg,.jpeg" required>
+            </label>
+            <button type="submit">Convert to PDF</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
