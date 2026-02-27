@@ -6,10 +6,18 @@ from PIL import Image
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploads'
-MERGED_FOLDER = 'merged'
-CONVERTED_FOLDER = 'converted'
-COMPRESSED_FOLDER = 'compressed'
+import os
+
+# Detect if running on Render
+if os.environ.get("RENDER"):
+    BASE_FOLDER = "/tmp"
+else:
+    BASE_FOLDER = os.path.dirname(os.path.abspath(__file__))
+
+UPLOAD_FOLDER = os.path.join(BASE_FOLDER, "uploads")
+MERGED_FOLDER = os.path.join(BASE_FOLDER, "merged")
+CONVERTED_FOLDER = os.path.join(BASE_FOLDER, "converted")
+COMPRESSED_FOLDER = os.path.join(BASE_FOLDER, "compressed")
 
 for folder in [UPLOAD_FOLDER, MERGED_FOLDER, CONVERTED_FOLDER, COMPRESSED_FOLDER]:
     os.makedirs(folder, exist_ok=True)
